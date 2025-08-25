@@ -1,0 +1,114 @@
+---
+title: "Week 1: Class Code"
+author: Cameron Cardona
+format: html
+editor: visual
+---
+
+## Demo Code:
+
+1.  Making notes:
+
+    ```{r}
+    # This is a note. Adding the # stops R from reading the line as code so you can make notes 
+    ```
+
+2.  Quick math in R:
+
+    ```{r}
+    2 + 2
+    ```
+
+3.  Making variables:
+
+    ```{r}
+    x <- 2 + 2
+    y = 4
+
+    x == y
+
+    my_name <- "Cameron"
+    print(my_name)
+    ```
+
+4.  printing multiple variables
+
+    ```{r}
+    print(c("My name is", my_name))
+    ```
+
+5.  You might also need to make a string of variables. For this you will need to use the function c(), where c stands for concatenate. From Merriam-Webster, concatenate: to link together in a series or a chain.
+
+    ```{r}
+    my_list <- c(1, 2, 3, 4)
+    my_list
+
+    #You can also have R fill in numbers in a series for you. 
+    my_long_list <- c(1:500)
+    ```
+
+    Once you have a list, you probably are going to want to access certain parts of it. In R, we do this using variable\[location\] formatting.
+
+    ```{r}
+    my_list[2]
+    my_long_list[78:146]
+    ```
+
+    But most likely, you are going to have a data frame of data. This is how you manually create one.
+
+    ```{r}
+    my_df <- data.frame(v1 = c(1, 3, 7, 9),
+                           v2 = c(2, 5, 9, 8),
+                           v3 = c(5, 7, 9, 3))
+    print(my_df)
+    ```
+
+6.  Accessing parts of a dataframe:
+
+    Like using lists, you will often find yourself wanting to access specific parts of your data frame. You can do this using one of the following notation styles.
+
+    -   df\$column_name
+
+    -   df\[row, column\]
+
+    -   df\[row,\] (leave out the row id and it will return the whole row)
+
+    -   df\[,column\] (returns the whole column)
+
+    ```{r}
+    my_df$v1
+    my_df[2,3]
+    my_df[2,]
+    my_df[,3]
+    ```
+
+7.  Functions
+
+    A function is a set of R code that has been predefined to do a function for you. In this example, we take the mean of the variable v1 in my_df using the R function "mean." Then we take the mean again, manually.
+
+    ```{r}
+    mean(my_df$v1)
+
+    sum(my_df$v1) / nrow(my_df) 
+    #Maybe not that much more difficult to do it manually, but you would need to know how to use the sum() and nrow() functions. You can imagine that doing larger tasks with a single function can make things a lot easier. 
+    ```
+
+    But, what if I have a function and I don't know how to use it or what it does?
+
+    ```{r}
+    help(mean)
+    ?mean
+
+    # or if you don't remember the name... 
+    ??sum
+    ```
+
+8.  Functions
+
+    R has many additional functions that are organized in packages. These can be hosted on CRAN, bioconductR, github, etc. For this bootcamp, you only need to be familiar with CRAN packages. They can be installed using the following code or by clicking packages \> install
+
+    Note: to update a package you just re-run the installation code.
+
+    ```{r}
+    #install.packages("ggplot2")
+    ```
