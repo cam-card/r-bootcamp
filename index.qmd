@@ -1,0 +1,10 @@
+---
+title: "Cameron's R Bootcamp"
+format: html
+---
+
+# Welcome to Cameron's R Bootcamp
+
+You can find notes, powerpoints, datasets, and even some example code that we will use to learn to code in R.
+
+You can use the navi bar to find the current weeks information or go back and find information from previous weeks.

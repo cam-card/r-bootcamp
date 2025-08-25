@@ -1,0 +1,12 @@
+project:
+  type: website
+
+website:
+  title: "R Bootcamp"
+  navbar:
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "Week 1"
+        href: week1.qmd
+      # Add more weeks here as they are ready
