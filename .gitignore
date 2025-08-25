@@ -1,0 +1,12 @@
+# Quarto build folder
+_site/
+
+# Quarto publishing metadata
+.quarto/
+
+# OS files
+.DS_Store
+
+# ZSHRC files
+.zshrc
+
