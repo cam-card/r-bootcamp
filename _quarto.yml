@@ -6,7 +6,7 @@ website:
   navbar:
     left:
       - text: "Home"
-        href: index.qmd
+        href: index.html
       - text: "Week 1"
-        href: wk_01.qmd
+        href: wk_01.html
       # Add more weeks here as they are ready
