@@ -8,5 +8,5 @@ website:
       - text: "Home"
         href: index.qmd
       - text: "Week 1"
-        href: week1.qmd
+        href: wk_01.qmd
       # Add more weeks here as they are ready
