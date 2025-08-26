@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "wk_01.html",
+    "href": "wk_01.html",
+    "title": "Week 1: Introduction to R",
+    "section": "",
+    "text": "This week we cover R installation and basics.\n\n\nLink to pre-class survey\nLink to install R\nLink to install R Studio\n\n\n\n\nInstall the following packages into your local R environment:\n\nTidyverse\nggplot2\nreadr\nreadxl\nstringr\n\nSend Cameron an email with what types of stats (t-test, ANOVA, linear regression) you want to learn to do using R.\n\nIf you need help, look at the code we ran in class here."
+  },
+  {
+    "objectID": "wk_01.html#in-class-links",
+    "href": "wk_01.html#in-class-links",
+    "title": "Week 1: Introduction to R",
+    "section": "",
+    "text": "Link to pre-class survey\nLink to install R\nLink to install R Studio"
+  },
+  {
+    "objectID": "wk_01.html#activity",
+    "href": "wk_01.html#activity",
+    "title": "Week 1: Introduction to R",
+    "section": "",
+    "text": "Install the following packages into your local R environment:\n\nTidyverse\nggplot2\nreadr\nreadxl\nstringr\n\nSend Cameron an email with what types of stats (t-test, ANOVA, linear regression) you want to learn to do using R.\n\nIf you need help, look at the code we ran in class here."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Cameron’s R Bootcamp",
+    "section": "",
+    "text": "Welcome to Cameron’s R Bootcamp\nYou can find notes, powerpoints, datasets, and even some example code that we will use to learn to code in R.\nYou can use the navi bar to find the current weeks information or go back and find information from previous weeks."
+  },
+  {
+    "objectID": "examples/week_1/classcode_wk1.html",
+    "href": "examples/week_1/classcode_wk1.html",
+    "title": "Week 1: Class Code",
+    "section": "",
+    "text": "Making notes:\n\n# This is a note. Adding the # stops R from reading the line as code so you can make notes \n\nQuick math in R:\n\n2 + 2\n\n[1] 4\n\n\nMaking variables:\n\nx &lt;- 2 + 2\ny = 4\n\nx == y\n\n[1] TRUE\n\nmy_name &lt;- \"Cameron\"\nprint(my_name)\n\n[1] \"Cameron\"\n\n\nprinting multiple variables\n\nprint(c(\"My name is\", my_name))\n\n[1] \"My name is\" \"Cameron\"   \n\n\nYou might also need to make a string of variables. For this you will need to use the function c(), where c stands for concatenate. From Merriam-Webster, concatenate: to link together in a series or a chain.\n\nmy_list &lt;- c(1, 2, 3, 4)\nmy_list\n\n[1] 1 2 3 4\n\n#You can also have R fill in numbers in a series for you. \nmy_long_list &lt;- c(1:500)\n\nOnce you have a list, you probably are going to want to access certain parts of it. In R, we do this using variable[location] formatting.\n\nmy_list[2]\n\n[1] 2\n\nmy_long_list[78:146]\n\n [1]  78  79  80  81  82  83  84  85  86  87  88  89  90  91  92  93  94  95  96\n[20]  97  98  99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115\n[39] 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134\n[58] 135 136 137 138 139 140 141 142 143 144 145 146\n\n\nBut most likely, you are going to have a data frame of data. This is how you manually create one.\n\nmy_df &lt;- data.frame(v1 = c(1, 3, 7, 9),\n                       v2 = c(2, 5, 9, 8),\n                       v3 = c(5, 7, 9, 3))\nprint(my_df)\n\n  v1 v2 v3\n1  1  2  5\n2  3  5  7\n3  7  9  9\n4  9  8  3\n\n\nAccessing parts of a dataframe:\nLike using lists, you will often find yourself wanting to access specific parts of your data frame. You can do this using one of the following notation styles.\n\ndf$column_name\ndf[row, column]\ndf[row,] (leave out the row id and it will return the whole row)\ndf[,column] (returns the whole column)\n\n\nmy_df$v1\n\n[1] 1 3 7 9\n\nmy_df[2,3]\n\n[1] 7\n\nmy_df[2,]\n\n  v1 v2 v3\n2  3  5  7\n\nmy_df[,3]\n\n[1] 5 7 9 3\n\n\nFunctions\nA function is a set of R code that has been predefined to do a function for you. In this example, we take the mean of the variable v1 in my_df using the R function “mean.” Then we take the mean again, manually.\n\nmean(my_df$v1)\n\n[1] 5\n\nsum(my_df$v1) / nrow(my_df) \n\n[1] 5\n\n#Maybe not that much more difficult to do it manually, but you would need to know how to use the sum() and nrow() functions. You can imagine that doing larger tasks with a single function can make things a lot easier. \n\nBut, what if I have a function and I don’t know how to use it or what it does?\n\nhelp(mean)\n?mean\n\n# or if you don't remember the name... \n??sum\n\nFunctions\nR has many additional functions that are organized in packages. These can be hosted on CRAN, bioconductR, github, etc. For this bootcamp, you only need to be familiar with CRAN packages. They can be installed using the following code or by clicking packages &gt; install\nNote: to update a package you just re-run the installation code.\n\n#install.packages(\"ggplot2\")"
+  },
+  {
+    "objectID": "examples/week_1/classcode_wk1.html#demo-code",
+    "href": "examples/week_1/classcode_wk1.html#demo-code",
+    "title": "Week 1: Class Code",
+    "section": "",
+    "text": "Making notes:\n\n# This is a note. Adding the # stops R from reading the line as code so you can make notes \n\nQuick math in R:\n\n2 + 2\n\n[1] 4\n\n\nMaking variables:\n\nx &lt;- 2 + 2\ny = 4\n\nx == y\n\n[1] TRUE\n\nmy_name &lt;- \"Cameron\"\nprint(my_name)\n\n[1] \"Cameron\"\n\n\nprinting multiple variables\n\nprint(c(\"My name is\", my_name))\n\n[1] \"My name is\" \"Cameron\"   \n\n\nYou might also need to make a string of variables. For this you will need to use the function c(), where c stands for concatenate. From Merriam-Webster, concatenate: to link together in a series or a chain.\n\nmy_list &lt;- c(1, 2, 3, 4)\nmy_list\n\n[1] 1 2 3 4\n\n#You can also have R fill in numbers in a series for you. \nmy_long_list &lt;- c(1:500)\n\nOnce you have a list, you probably are going to want to access certain parts of it. In R, we do this using variable[location] formatting.\n\nmy_list[2]\n\n[1] 2\n\nmy_long_list[78:146]\n\n [1]  78  79  80  81  82  83  84  85  86  87  88  89  90  91  92  93  94  95  96\n[20]  97  98  99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115\n[39] 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134\n[58] 135 136 137 138 139 140 141 142 143 144 145 146\n\n\nBut most likely, you are going to have a data frame of data. This is how you manually create one.\n\nmy_df &lt;- data.frame(v1 = c(1, 3, 7, 9),\n                       v2 = c(2, 5, 9, 8),\n                       v3 = c(5, 7, 9, 3))\nprint(my_df)\n\n  v1 v2 v3\n1  1  2  5\n2  3  5  7\n3  7  9  9\n4  9  8  3\n\n\nAccessing parts of a dataframe:\nLike using lists, you will often find yourself wanting to access specific parts of your data frame. You can do this using one of the following notation styles.\n\ndf$column_name\ndf[row, column]\ndf[row,] (leave out the row id and it will return the whole row)\ndf[,column] (returns the whole column)\n\n\nmy_df$v1\n\n[1] 1 3 7 9\n\nmy_df[2,3]\n\n[1] 7\n\nmy_df[2,]\n\n  v1 v2 v3\n2  3  5  7\n\nmy_df[,3]\n\n[1] 5 7 9 3\n\n\nFunctions\nA function is a set of R code that has been predefined to do a function for you. In this example, we take the mean of the variable v1 in my_df using the R function “mean.” Then we take the mean again, manually.\n\nmean(my_df$v1)\n\n[1] 5\n\nsum(my_df$v1) / nrow(my_df) \n\n[1] 5\n\n#Maybe not that much more difficult to do it manually, but you would need to know how to use the sum() and nrow() functions. You can imagine that doing larger tasks with a single function can make things a lot easier. \n\nBut, what if I have a function and I don’t know how to use it or what it does?\n\nhelp(mean)\n?mean\n\n# or if you don't remember the name... \n??sum\n\nFunctions\nR has many additional functions that are organized in packages. These can be hosted on CRAN, bioconductR, github, etc. For this bootcamp, you only need to be familiar with CRAN packages. They can be installed using the following code or by clicking packages &gt; install\nNote: to update a package you just re-run the installation code.\n\n#install.packages(\"ggplot2\")"
+  }
+]
