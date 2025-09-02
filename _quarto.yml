@@ -11,6 +11,8 @@ website:
     left:
       - text: "Home"
         href: index.html
-      - text: "Week 1"
+      - text: "Week 1: Basics"
         href: wk_01.html
+      - text: "Week 2: Dplyr"
+	href: wk2_dplyr.html
       # Add more weeks here as they are ready

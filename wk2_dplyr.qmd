@@ -1,0 +1,182 @@
+---
+title: "R Bootcamp Week 2: Loading & Manipulating Data"
+author: "Cameron J Cardona"
+format: html
+editor: visual
+---
+
+# Loading and Manipulating Data with R
+
+# R Bootcamp Week 2
+
+## 1. Using packages and functions, pt 2
+
+Last week, we talked briefly about using packages and functions. In week 2, we get a practical demonstration of why packages are used in R.
+
+Here are some quick definitions:
+
+1.  Package: A collection of R functions that usually complete similar tasks or can be used together to accomplish a goal. This correlation is not a requirement, though.
+2.  Function: A function is a set of written code that accomplishes a task. For example, calculating the mean or SD, reading data into R, or saving your manipulated dataset as a CSV file.
+
+Before using a function in R, you need to load its package:
+
+```{r}
+# loading the dplyr package in R
+library(dplyr)
+
+# OR (nto as a comment....)
+#dplyr::select()
+```
+
+Alternatively, you can reference a function without loading the full package by using the package::function() notation. For example, say you want to use the function "select()" from the package "dplyr" without loading the full package. You can use dplyr::select().
+
+Remember, to get help with using a function, you can reference it's help file. Here's an example finding the help file for the mean function:
+
+```{r}
+?mean
+```
+
+Under most circumstances, you are wanting to supply some type of information to the function. This called an argument. So think package::function(argument) or function(argument). An argument might be data or an option you need to specify. Sometimes arguments will have a default option selected. The functions help file probably gives you specifics on the defaults and what arguments are available/what they do.
+
+Functions work from inside the deepest set of parenthesis outward. For example if you ran bake(combine_ingredients()), R would combine ingredients first then bake.
+
+## 2. R has built in data sets for practice
+
+This week we will use 2 of R's built in data sets: ChickWeight and palmer penguins.
+
+Here's some example code for working with R's built in data sets:
+
+```{r}
+# load data into R with data() 
+data("ChickWeight")
+```
+
+```{r}
+# you can pick a different name for your dataframe, 
+# though. Just assign it like any other variable. 
+
+chicken <- ChickWeight
+```
+
+You can also get more information about R's built in data sets similarly to how you would get more information about a function or package!
+
+```{r}
+?ChickWeight
+```
+
+## 3. Working with Data using Tidyverse
+
+Although base R has functions to do everything available in the tidyverse, but the tidyverse especially packages like dplyr, tidyr, and magrittr have become very common. I prefer using them because they are a lot easier to use, especially in sequence, and they are easier to read.
+
+### Dplyr
+
+A list of common dplyr functions:
+
+| function() | use case |
+|----|----|
+| select() | "select" certain column of a dataframe |
+| filter() | "filter" a dataframe keeping rows that match a certain criteria |
+| arrange() | "arrange" the dataframe / sort by a certain column |
+| mutate() | "mutate" the dataframe by adding another column/variable |
+| group_by() | "group by" a certain column for summary statistics |
+| summarise() | "summarise" after grouping to get summary statistics |
+
+### Magrittr
+
+Magrittr allows you to pipe. I would recommend visiting the magrittr description file for a summary of what it does. Essentially, it allows you to chain functions together using the pipe operator (%\>%), placing the output of one function into the first argument of the next. This works especially well with dplyr.
+
+*Note:* Loading the dplyr packages enables the basic magrittr forward pipe, but if you're interested, there are other piping methods in this package.
+
+Here's an example calculating the mean weight for all chicks in the ChickWeight data set:
+
+```{r}
+data("ChickWeight")
+mean(ChickWeight$weight)
+
+# OR PIPE: 
+library(magrittr)
+ChickWeight$weight %>% mean()
+```
+
+Look at the following example where I complete the following tasks with and with out piping:
+
+1.  keep only data points where weight is greater than 100
+2.  keep only data points where time is 12
+3.  select the weight, time, and diet columns
+4.  calculate the mean, grouping by Diet and Time
+5.  Arrange the data set by the calculated mean from lowest to highest.
+
+Option 1: Create loads of variables or save over the same variables multiple times
+
+```{r}
+# example without pipe, creating variables  
+data(ChickWeight) # loading up some data
+
+chwt_filtered1 <- filter(ChickWeight, weight > 100)
+chwt_filtered2 <- filter(chwt_filtered1, Time == 12)
+chwt_selected <- select(chwt_filtered2, weight, Time, Diet)
+chwt_grouped  <- group_by(chwt_selected, Diet, Time)
+chwt_summary  <- summarise(chwt_grouped, mean = mean(weight))
+chwt_clean    <- arrange(chwt_summary, -mean)
+
+print(chwt_clean)
+```
+
+Option 2: Nested functions. This doesn't create multiple variables but it sure is difficult to read!
+
+```{r}
+# example without pipe 
+data(ChickWeight) # loading up some data
+
+chwt_clean <- arrange(
+  summarise(
+    group_by(
+      select(
+        filter(
+          filter(ChickWeight, weight > 100),
+          Time == 12
+        ),
+        weight, Time, Diet
+      ),
+      Diet, Time
+    ),
+    mean = mean(weight)
+  ),
+  -mean
+)
+
+print(chwt_clean)
+```
+
+Option 3: Using pipes. Look how clean and easy to read/follow this is.
+
+```{r}
+
+# first load dplyr
+library(dplyr)
+
+data(ChickWeight) # loading up some data
+
+# example with pipe 
+chwt_clean <- ChickWeight %>% 
+  filter(weight > 100) %>% 
+  filter(Time == 12) %>% 
+  select(weight, Time, Diet) %>% 
+  group_by(Diet, Time) %>% 
+  summarise(mean = mean(weight)) %>%
+  arrange(-mean)
+
+print(chwt_clean)
+#you can also pipe into a single function for example: chwt_clean %>% print()
+```
+
+## Activity/Homework:
+
+1.  Install the palmerpenguins package
+2.  Load the dataset penguins_raw into R.
+3.  Look at the information for the data set.
+4.  What is information is stored in the variable bill_dep?
+5.  What 3 datasources were used to develop this dataset?
+6.  Trim the dataset so that you only have the following variables: Species, Island, xStage, Date Egg, Flipper Length, Culment Depth, Culmen Length and Sex.
+7.  Inspect the formatting using head()
+8.  Calculate the summary statistics grouping by Island and species
