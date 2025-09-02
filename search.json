@@ -67,6 +67,6 @@
     "href": "wk_02.html#activityhomework",
     "title": "R Bootcamp Week 2: Loading & Manipulating Data",
     "section": "Activity/Homework:",
-    "text": "Activity/Homework:\n\nInstall the palmerpenguins package\nLoad the dataset penguins_raw into R.\nLook at the information for the data set.\nWhat is information is stored in the variable bill_dep?\nWhat 3 datasources were used to develop this dataset?\nTrim the dataset so that you only have the following variables: Species, Island, xStage, Date Egg, Flipper Length, Culment Depth, Culmen Length and Sex. hint: if there is a space in the variable name you need to use “`\" For example select(penguins,Date Egg,Flipper Length (mm)`)\nInspect the formatting using head()\nCalculate the summary statistics grouping by Island and species"
+    "text": "Activity/Homework:\n\nInstall the palmerpenguins package\nLoad the dataset penguins_raw into R.\nLook at the information for the data set.\nWhat is information is stored in the variable bill_dep?\nWhat 3 datasources were used to develop this dataset?\nTrim the dataset so that you only have the following variables: Species, Island, xStage, Date Egg, Flipper Length, Culment Depth, Culmen Length and Sex. hint: if there is a space in the variable name you need to use “`name`.” For example, select(data, `Flipper Length (mm)`)\nInspect the formatting using head()\nCalculate the summary statistics grouping by Island and species"
   }
 ]
