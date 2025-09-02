@@ -24,7 +24,7 @@ Before using a function in R, you need to load its package:
 # loading the dplyr package in R
 library(dplyr)
 
-# OR (nto as a comment....)
+# OR (not as a comment....)
 #dplyr::select()
 ```
 
@@ -65,8 +65,7 @@ You can also get more information about R's built in data sets similarly to how 
 ```
 
 ## 3. Working with Data using Tidyverse
-
-Although base R has functions to do everything available in the tidyverse, but the tidyverse especially packages like dplyr, tidyr, and magrittr have become very common. I prefer using them because they are a lot easier to use, especially in sequence, and they are easier to read.
+Although base R has functions to do everything available in the tidyverse, the tidyverse especially packages like dplyr, tidyr, and magrittr have become very common. I prefer using them because they are a lot easier to use, especially in sequence, and they are easier to read.
 
 ### Dplyr
 
@@ -80,6 +79,8 @@ A list of common dplyr functions:
 | mutate() | "mutate" the dataframe by adding another column/variable |
 | group_by() | "group by" a certain column for summary statistics |
 | summarise() | "summarise" after grouping to get summary statistics |
+
+You can find example of using these functions in the code below. 
 
 ### Magrittr
 
