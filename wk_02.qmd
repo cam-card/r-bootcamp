@@ -65,6 +65,7 @@ You can also get more information about R's built in data sets similarly to how 
 ```
 
 ## 3. Working with Data using Tidyverse
+
 Although base R has functions to do everything available in the tidyverse, the tidyverse especially packages like dplyr, tidyr, and magrittr have become very common. I prefer using them because they are a lot easier to use, especially in sequence, and they are easier to read.
 
 ### Dplyr
@@ -72,7 +73,7 @@ Although base R has functions to do everything available in the tidyverse, the t
 A list of common dplyr functions:
 
 | function() | use case |
-|----|----|
+|------------------------------------|------------------------------------|
 | select() | "select" certain column of a dataframe |
 | filter() | "filter" a dataframe keeping rows that match a certain criteria |
 | arrange() | "arrange" the dataframe / sort by a certain column |
@@ -80,7 +81,7 @@ A list of common dplyr functions:
 | group_by() | "group by" a certain column for summary statistics |
 | summarise() | "summarise" after grouping to get summary statistics |
 
-You can find example of using these functions in the code below. 
+You can find example of using these functions in the code below.
 
 ### Magrittr
 
@@ -178,7 +179,6 @@ print(chwt_clean)
 3.  Look at the information for the data set.
 4.  What is information is stored in the variable bill_dep?
 5.  What 3 datasources were used to develop this dataset?
-6.  Trim the dataset so that you only have the following variables: Species, Island, xStage, Date Egg, Flipper Length, Culment Depth, Culmen Length and Sex.
-*hint:* if there is a space in the variable name you need to use "``" For example select(penguins, `Date Egg`, `Flipper Length (mm)`)
+6.  Trim the dataset so that you only have the following variables: Species, Island, xStage, Date Egg, Flipper Length, Culment Depth, Culmen Length and Sex. *hint:* if there is a space in the variable name you need to use "\`name\`." For example, select(data, \`Flipper Length (mm)\`)
 7.  Inspect the formatting using head()
 8.  Calculate the summary statistics grouping by Island and species
