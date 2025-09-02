@@ -181,4 +181,4 @@ print(chwt_clean)
 5.  What 3 datasources were used to develop this dataset?
 6.  Trim the dataset so that you only have the following variables: Species, Island, xStage, Date Egg, Flipper Length, Culment Depth, Culmen Length and Sex. *hint:* if there is a space in the variable name you need to use "\`name\`." For example, select(data, \`Flipper Length (mm)\`)
 7.  Inspect the formatting using head()
-8.  Calculate the summary statistics grouping by Island and species
+8.  Calculate the summary statistics (mean and sd for flipper length) grouping by Island and species
