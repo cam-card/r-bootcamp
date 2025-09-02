@@ -179,5 +179,6 @@ print(chwt_clean)
 4.  What is information is stored in the variable bill_dep?
 5.  What 3 datasources were used to develop this dataset?
 6.  Trim the dataset so that you only have the following variables: Species, Island, xStage, Date Egg, Flipper Length, Culment Depth, Culmen Length and Sex.
+*hint:* if there is a space in the variable name you need to use "``" For example select(penguins, `Date Egg`, `Flipper Length (mm)`)
 7.  Inspect the formatting using head()
 8.  Calculate the summary statistics grouping by Island and species
