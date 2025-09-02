@@ -1,0 +1,1 @@
+Sitemap: https://cam-card.github.io/r-bootcamp/sitemap.xml

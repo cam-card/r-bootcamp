@@ -130,7 +130,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../wk_01.html"> 
-<span class="menu-text">Week 1</span></a>
+<span class="menu-text">Week 1: Basics</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../wk_02.html"> 
+<span class="menu-text">Week 2: Tidyverse</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -378,7 +382,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/cam-card\.github\.io\/r-bootcamp\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
