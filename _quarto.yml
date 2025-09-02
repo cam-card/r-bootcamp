@@ -13,6 +13,6 @@ website:
         href: index.html
       - text: "Week 1: Basics"
         href: wk_01.html
-      - text: "Week 2: Dplyr"
-	href: wk2_dplyr.html
+      - text: "Week 2: Tidyverse"
+        href: wk_02.html
       # Add more weeks here as they are ready
