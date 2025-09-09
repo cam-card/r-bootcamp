@@ -1,5 +1,5 @@
 ---
-title: "wk3_readrggplot"
+title: "Week 3: Reading/Writing Files"
 author: "Cameron J Cardona"
 format: html
 editor: visual
@@ -63,62 +63,11 @@ Similarly to reading data into R, you can also export data from R in most format
 |               | readr::write_table() | readr::write_csv() |                       |
 +---------------+----------------------+--------------------+-----------------------+
 
-## 2. ggplot2: data visualization
+### Homework: 
 
-### What is ggplot2?
-
-GGplot2 is an easy "declarative" way to crate plots in R. GGplot can be used to make common graph types. Even though base R is able to make similar graphs, I find that plotting options like ggplot2 are a bit easier to read because the pacakge takes care of options/details in the background for you. GGplot2 is built on an older version of the package called ggplot, now available as ggplot1. The package is also part of the tidyverse so you *should* already have it installed... if you did the first homework.
-
-In this bootcamp, we are going to cover the basics of plotting with ggplot. If you want more information on plotting with ggplot2, I recommend [this *fabulous* webinar](https://www.youtube.com/watch?v=h29g21z0a68) from Thomas Lin Pedersen. There is also a series of videos specifically focused on graphing the results of one-way, two-way and even three-way ANOVAs on the [statDOE website](https://statdoe.com/r-tutorials) created by Rosane Rech, many of which have corresponding youtube videos.
-
-### Basic ggplot structure
-
-Here's a basic example of what code looks like to generate a bar graph using ggplot. Note that when doing this, you need to tell ggplot what statistic you want it to calculate and plot. Here, we plotted the mean flipper length which we selected using the stat and fun parameters.
-
-```{r}
-library(palmerpenguins)
-    library(dplyr)
-    library(ggplot2)
-
-peng <- penguins_raw
-
-ggplot(data = peng, aes(x = Island, y = `Flipper Length (mm)`)) +
-      geom_bar(stat = "summary", fun = "mean")
-```
-
-More commonly, or at least the way I was taught to do it, you manually calculate the values you want to plot first. My general workflow is to calculate all of the summary statistics I might want all at once. Typically this means mean, SD, n, and SEM. Then you can use the resultant data frame to plot things a little easier.
-
-1.  Get your summary statistics ready
-2.  Create the basic ggplot syntax
-
--   Line 1: the ggplot "call"
-
--   Line 2: the "geom" line
-
-```{r}
-pengstat <- peng %>% 
-  na.omit() %>% 
-  group_by(Island) %>% 
-  summarise(mean = mean(`Flipper Length (mm)`),
-            n = n(),
-            sd = sd(`Flipper Length (mm)`),
-            sem = sd/sqrt(n))
-
-ggplot(data = pengstat, aes(x = Island, y = mean)) + 
-  geom_bar(stat = "identity")
-```
-
-GGplot2 also has many customization options. These are just a couple of them.
-
-```{r}
-ggplot(data = pengstat, aes(x = Island, y = mean, fill = Island)) + 
-  geom_bar(stat = "identity", colour = "black") + # color = outline here
-  geom_errorbar(aes(ymin = mean, ymax = mean + sd, # Adding error bars
-                    width = 0.25)) + 
-  labs(x = "Island of Origin", y = "Flipper Length (mm)",
-       title = "Flipper Length in Penguins") + 
-  scale_fill_brewer(palette = "Accent") +
-  theme_minimal()
-```
-
-### 
+1.  Load the ChickWeight dataset in R.
+2.  Set your wd to the Desktop
+3.  Save the ChickWeight dataset on your Desktop as a CSV file
+4.  Open the CSV file in excel and change some values
+5.  Load the dataset back in R and use head() to see the differences based on changes you mad e
+6.  Pick some data from your own research & try to open it in R.
