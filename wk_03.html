@@ -8,7 +8,7 @@
 
 <meta name="author" content="Cameron J Cardona">
 
-<title>wk3_readrggplot – R Bootcamp</title>
+<title>Week 3: Reading/Writing Files – R Bootcamp</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -157,7 +157,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">wk3_readrggplot</h1>
+<h1 class="title">Week 3: Reading/Writing Files</h1>
 </div>
 
 
@@ -271,110 +271,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 </section>
-</section>
-<section id="ggplot2-data-visualization" class="level2">
-<h2 class="anchored" data-anchor-id="ggplot2-data-visualization">2. ggplot2: data visualization</h2>
-<section id="what-is-ggplot2" class="level3">
-<h3 class="anchored" data-anchor-id="what-is-ggplot2">What is ggplot2?</h3>
-<p>GGplot2 is an easy “declarative” way to crate plots in R. GGplot can be used to make common graph types. Even though base R is able to make similar graphs, I find that plotting options like ggplot2 are a bit easier to read because the pacakge takes care of options/details in the background for you. GGplot2 is built on an older version of the package called ggplot, now available as ggplot1. The package is also part of the tidyverse so you <em>should</em> already have it installed… if you did the first homework.</p>
-<p>In this bootcamp, we are going to cover the basics of plotting with ggplot. If you want more information on plotting with ggplot2, I recommend <a href="https://www.youtube.com/watch?v=h29g21z0a68">this <em>fabulous</em> webinar</a> from Thomas Lin Pedersen. There is also a series of videos specifically focused on graphing the results of one-way, two-way and even three-way ANOVAs on the <a href="https://statdoe.com/r-tutorials">statDOE website</a> created by Rosane Rech, many of which have corresponding youtube videos.</p>
-</section>
-<section id="basic-ggplot-structure" class="level3">
-<h3 class="anchored" data-anchor-id="basic-ggplot-structure">Basic ggplot structure</h3>
-<p>Here’s a basic example of what code looks like to generate a bar graph using ggplot. Note that when doing this, you need to tell ggplot what statistic you want it to calculate and plot. Here, we plotted the mean flipper length which we selected using the stat and fun parameters.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'palmerpenguins'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:datasets':
-
-    penguins, penguins_raw</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'dplyr'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:stats':
-
-    filter, lag</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:base':
-
-    intersect, setdiff, setequal, union</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(ggplot2)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>peng <span class="ot">&lt;-</span> penguins_raw</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> peng, <span class="fu">aes</span>(<span class="at">x =</span> Island, <span class="at">y =</span> <span class="st">`</span><span class="at">Flipper Length (mm)</span><span class="st">`</span>)) <span class="sc">+</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"summary"</span>, <span class="at">fun =</span> <span class="st">"mean"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 2 rows containing non-finite outside the scale range
-(`stat_summary()`).</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="wk_03_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>More commonly, or at least the way I was taught to do it, you manually calculate the values you want to plot first. My general workflow is to calculate all of the summary statistics I might want all at once. Typically this means mean, SD, n, and SEM. Then you can use the resultant data frame to plot things a little easier.</p>
+<section id="homework" class="level3">
+<h3 class="anchored" data-anchor-id="homework">Homework:</h3>
 <ol type="1">
-<li>Get your summary statistics ready</li>
-<li>Create the basic ggplot syntax</li>
+<li>Load the ChickWeight dataset in R.</li>
+<li>Set your wd to the Desktop</li>
+<li>Save the ChickWeight dataset on your Desktop as a CSV file</li>
+<li>Open the CSV file in excel and change some values</li>
+<li>Load the dataset back in R and use head() to see the differences based on changes you mad e</li>
+<li>Pick some data from your own research &amp; try to open it in R.</li>
 </ol>
-<ul>
-<li><p>Line 1: the ggplot “call”</p></li>
-<li><p>Line 2: the “geom” line</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>pengstat <span class="ot">&lt;-</span> peng <span class="sc">%&gt;%</span> </span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Island) <span class="sc">%&gt;%</span> </span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">Flipper Length (mm)</span><span class="st">`</span>),</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">n</span>(),</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd =</span> <span class="fu">sd</span>(<span class="st">`</span><span class="at">Flipper Length (mm)</span><span class="st">`</span>),</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">sem =</span> sd<span class="sc">/</span><span class="fu">sqrt</span>(n))</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> pengstat, <span class="fu">aes</span>(<span class="at">x =</span> Island, <span class="at">y =</span> mean)) <span class="sc">+</span> </span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="wk_03_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>GGplot2 also has many customization options. These are just a couple of them.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> pengstat, <span class="fu">aes</span>(<span class="at">x =</span> Island, <span class="at">y =</span> mean, <span class="at">fill =</span> Island)) <span class="sc">+</span> </span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span> <span class="co"># color = outline here</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> mean, <span class="at">ymax =</span> mean <span class="sc">+</span> sd, <span class="co"># Adding error bars</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">width =</span> <span class="fl">0.25</span>)) <span class="sc">+</span> </span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Island of Origin"</span>, <span class="at">y =</span> <span class="st">"Flipper Length (mm)"</span>,</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Flipper Length in Penguins"</span>) <span class="sc">+</span> </span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Accent"</span>) <span class="sc">+</span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="wk_03_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="section" class="level3">
-<h3 class="anchored" data-anchor-id="section"></h3>
 
 
 </section>
