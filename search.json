@@ -51,9 +51,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Cameron’s R Bootcamp",
+    "title": "Cameron’s R Tidyverse Bootcamp",
     "section": "",
-    "text": "Welcome to Cameron’s R Bootcamp\nYou can find notes, powerpoints, datasets, and even some example code that we will use to learn to code in R.\nYou can use the navi bar to find the current weeks information or go back and find information from previous weeks."
+    "text": "Welcome to Cameron’s R Bootcamp\nIn this class we cover the basics of R programing using the Tidyverse. This includes basic R syntax, working with different file/data types, visualization and statistics.\nThere are pages available with the content from each week including an activity/practice opportunity. The bootcamp is held in person on Tuesdays at 3:00 pm in NRD 307."
   },
   {
     "objectID": "examples/week_1/classcode_wk1.html",
