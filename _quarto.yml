@@ -17,4 +17,6 @@ website:
         href: wk_02.html
       - text: "Week 3: readr"    
         href: wk_03.html
+      - text: "Week 4: ggplot2"
+        href: wk_04.html
       # Add more weeks here as they are ready
